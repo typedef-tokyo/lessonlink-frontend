@@ -1,0 +1,63 @@
+{
+	"$schema": "node_modules/@biomejs/biome/configuration_schema.json",
+	"assist": {
+		"enabled": true,
+		"actions": {
+			"source": {
+				"organizeImports": "on"
+			}
+		}
+	},
+	"linter": {
+		"enabled": false,
+		"rules": {
+			"recommended": false,
+			"style": {
+				"noUselessElse": "off"
+			},
+			"complexity": {
+				"noStaticOnlyClass": "off"
+			},
+			"suspicious": {
+				"noExtraNonNullAssertion": "off",
+				"noExplicitAny": "off",
+				"noArrayIndexKey": "off"
+			},
+			"correctness": {
+				"noUnusedVariables": {
+					"level": "warn",
+					"fix": "none"
+				}
+			}
+		}
+	},
+	"javascript": {
+		"parser": {
+			"unsafeParameterDecoratorsEnabled": true
+		},
+		"formatter": {
+			"enabled": true,
+			"quoteStyle": "single",
+			"jsxQuoteStyle": "single",
+			"trailingCommas": "all",
+			"semicolons": "asNeeded",
+			"arrowParentheses": "asNeeded",
+			"indentWidth": 2,
+			"indentStyle": "space",
+			"lineWidth": 100,
+			"quoteProperties": "asNeeded"
+		}
+	},
+	"files": {
+		"includes": [
+			"**",
+			"!**/generated",
+			"!**/*.generate.*",
+			"!**/node_modules",
+			"!schema.ts",
+			"!**/.git",
+			"!**/.docker-compose-data"
+		],
+		"ignoreUnknown": true
+	}
+}
