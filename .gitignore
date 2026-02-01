@@ -34,10 +34,7 @@ jspm_packages
 .npm
 
 # Optional REPL history
-.node_repl_history
-.next
 .devcontainer/devcontainer.json
-app/.vscode/launch.json
-app/first-next-app/.vscode/launch.json
-testcsv/
-memo.txt
+lesson-link/.env.local
+lesson-link/.next/
+lesson-link/next-env.d.ts
