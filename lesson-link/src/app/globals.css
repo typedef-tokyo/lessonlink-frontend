@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Webkit対応ブラウザ用 (Chrome, Safari, Edge) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 2px; /* 縦スクロールバーの幅 */
+  height: 2px; /* 横スクロールバーの高さを指定 */
+}
+
+/* 縦スクロールバー */
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 10px;
+  min-height: 30px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* 横スクロールバー */
+.custom-scrollbar::-webkit-scrollbar:horizontal {
+  height: 2px; /* 横スクロールバーの高さを細くする */
+}
+
+/* 横スクロールバーのつまみ */
+.custom-scrollbar::-webkit-scrollbar-thumb:horizontal {
+  background: #888;
+  border-radius: 10px;
+  min-width: 30px;
+}
+
+/* 横スクロールバーのホバー時 */
+.custom-scrollbar::-webkit-scrollbar-thumb:horizontal:hover {
+  background: #666;
+}

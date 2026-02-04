@@ -1,0 +1,10 @@
+services:
+  react-app:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3031:3000"
+    tty: true
