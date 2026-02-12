@@ -186,7 +186,6 @@ const presenter_ScheduleListDTO = z
     last_update_date_time: z.string(),
     last_update_user_name: z.string(),
     schedule_id: z.number().int(),
-    status: z.string(),
     title: z.string(),
   })
   .passthrough();
@@ -314,7 +313,12 @@ const endpoints = makeApi([
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -341,17 +345,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -372,17 +381,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -409,17 +423,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -446,17 +465,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -477,17 +501,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -500,7 +529,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: z.void(),
@@ -508,17 +537,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -531,12 +565,12 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
       {
         name: "history",
         type: "Query",
-        schema: z.string().optional(),
+        schema: z.number().int().optional(),
       },
     ],
     response: presenter_ScheduleGetResponse,
@@ -544,17 +578,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -573,7 +612,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: presenter_ScheduleSaveResponse,
@@ -581,17 +620,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -604,7 +648,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: z.void(),
@@ -612,17 +656,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -641,7 +690,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: presenter_ScheduleItemEditResponse,
@@ -649,17 +698,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -678,7 +732,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: presenter_ScheduleItemEditResponse,
@@ -686,17 +740,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -715,7 +774,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: presenter_ScheduleItemEditResponse,
@@ -723,17 +782,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -752,7 +816,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: presenter_ScheduleItemEditResponse,
@@ -760,17 +824,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -789,7 +858,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: presenter_ScheduleItemEditResponse,
@@ -797,17 +866,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -826,7 +900,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: z.object({ msg: z.string() }).passthrough(),
@@ -834,17 +908,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -863,7 +942,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: presenter_ScheduleItemEditResponse,
@@ -871,17 +950,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -900,7 +984,7 @@ const endpoints = makeApi([
       {
         name: "schedule_id",
         type: "Path",
-        schema: z.string(),
+        schema: z.number().int(),
       },
     ],
     response: z.object({ msg: z.string() }).passthrough(),
@@ -908,17 +992,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -945,17 +1034,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -976,17 +1070,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -1008,17 +1107,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 409,
         description: `Conflict`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -1040,17 +1144,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -1071,17 +1180,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -1102,17 +1216,22 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 404,
         description: `Not Found`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -1126,12 +1245,17 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },
@@ -1153,12 +1277,17 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: presenter_UserLoginResponse,
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: presenter_UserLoginResponse,
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: presenter_UserLoginResponse,
       },
     ],
   },
@@ -1168,6 +1297,18 @@ const endpoints = makeApi([
     alias: "postUserlogout",
     requestFormat: "json",
     response: z.string(),
+    errors: [
+      {
+        status: 401,
+        description: `Unauthorized`,
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.string(),
+      },
+    ],
   },
   {
     method: "get",
@@ -1179,12 +1320,17 @@ const endpoints = makeApi([
       {
         status: 400,
         description: `Bad Request`,
-        schema: z.string(),
+        schema: z.record(z.string()),
       },
       {
         status: 401,
         description: `Unauthorized`,
-        schema: z.string(),
+        schema: z.record(z.string()),
+      },
+      {
+        status: 500,
+        description: `Internal Server Error`,
+        schema: z.record(z.string()),
       },
     ],
   },

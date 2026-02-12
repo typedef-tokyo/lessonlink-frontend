@@ -98,7 +98,7 @@ const ScheduleList = ({ params }: Props) => {
   const onHandleDelete = (scheduleId: number) => {
     apiClient
       .deleteScheduleSchedule_id(undefined, {
-        params: { schedule_id: String(scheduleId) },
+        params: { schedule_id: scheduleId },
       })
       .then(() => {
         showSuccess('', `スケジュールを削除しました`)
@@ -113,7 +113,7 @@ const ScheduleList = ({ params }: Props) => {
     showLoading('duplicate', 'duplicating...', `スケジュールを複製中...`)
     apiClient
       .postScheduleSchedule_idduplicate(undefined, {
-        params: { schedule_id: String(scheduleId) },
+        params: { schedule_id: scheduleId },
       })
       .then(() => {
         showSuccess('', `スケジュールを複製しました`)

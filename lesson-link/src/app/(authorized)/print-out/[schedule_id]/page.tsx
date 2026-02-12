@@ -19,7 +19,7 @@ type Props = {
 }
 
 const PrintOutTemplate = ({ params }: Props) => {
-  const scheduleId = params.schedule_id
+  const scheduleId = Number(params.schedule_id)
 
   const { data, error, isLoading } = apiHooks.useGetScheduleSchedule_id(
     {

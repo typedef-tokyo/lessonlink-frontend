@@ -34,7 +34,7 @@ type Props = {
 const TimeSchedule = ({ params }: Props) => {
   const { user } = useUser()
 
-  const scheduleId = params.schedule_id
+  const scheduleId = Number(params.schedule_id)
 
   const { mutateAsync: patchScheduleSave } = apiHooks.usePostScheduleSchedule_id({
     params: { schedule_id: scheduleId },
@@ -102,7 +102,7 @@ const TimeSchedule = ({ params }: Props) => {
     apiClient
       .getScheduleSchedule_id({
         params: { schedule_id: scheduleId },
-        queries: { history: String(selectHistoryIndex) },
+        queries: { history: selectHistoryIndex },
       })
       .then(res => {
         showingHistoryIndex.current = res.history_index

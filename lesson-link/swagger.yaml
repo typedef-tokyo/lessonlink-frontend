@@ -471,8 +471,6 @@ definitions:
         type: string
       schedule_id:
         type: integer
-      status:
-        type: string
       title:
         type: string
     required:
@@ -481,7 +479,6 @@ definitions:
     - last_update_date_time
     - last_update_user_name
     - schedule_id
-    - status
     - title
     type: object
   presenter.ScheduleListResponse:
@@ -650,7 +647,15 @@ paths:
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: キャンパスリスト取得
   /lesson/{campus}:
     post:
@@ -676,15 +681,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: 講座追加
   /lesson/{campus}/list:
     get:
@@ -704,15 +721,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: 講座一覧取得
   /lesson/{lessonid}:
     patch:
@@ -738,15 +767,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: 講座編集
   /room/{campus}/edit:
     post:
@@ -772,15 +813,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: 教室編集
   /room/{campus}/list:
     get:
@@ -800,15 +853,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: 教室リスト取得
   /schedule/{schedule_id}:
     delete:
@@ -817,7 +882,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       produces:
       - application/json
       responses:
@@ -826,15 +891,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール削除
     get:
       parameters:
@@ -842,11 +919,11 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: 履歴番号
         in: query
         name: history
-        type: string
+        type: integer
       produces:
       - application/json
       responses:
@@ -857,15 +934,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュールリスト取得
     post:
       parameters:
@@ -873,7 +962,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: スケジュール保存リクエスト
         in: body
         name: request
@@ -890,15 +979,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール保存
   /schedule/{schedule_id}/duplicate:
     post:
@@ -907,7 +1008,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       produces:
       - application/json
       responses:
@@ -916,15 +1017,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール複製
   /schedule/{schedule_id}/item-divide:
     post:
@@ -933,7 +1046,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: スケジュール保存リクエスト
         in: body
         name: request
@@ -950,15 +1063,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール編集アイテムリスト分割
   /schedule/{schedule_id}/item-join:
     post:
@@ -967,7 +1092,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: アイテム結合リクエスト
         in: body
         name: request
@@ -984,15 +1109,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール編集アイテムリスト分割
   /schedule/{schedule_id}/item-move:
     post:
@@ -1001,7 +1138,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: アイテム移動リクエスト
         in: body
         name: request
@@ -1018,15 +1155,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール編集アイテム移動
   /schedule/{schedule_id}/item-return-list:
     post:
@@ -1035,7 +1184,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: アイテムリスト移動リクエスト
         in: body
         name: request
@@ -1052,15 +1201,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール編集アイテムリスト移動
   /schedule/{schedule_id}/item-shift:
     post:
@@ -1069,7 +1230,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: アイテムシフトリクエスト
         in: body
         name: request
@@ -1086,15 +1247,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール編集アイテムシフト
   /schedule/{schedule_id}/room/invisible:
     put:
@@ -1103,7 +1276,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: 非表示ルームリクエスト
         in: body
         name: request
@@ -1120,15 +1293,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: 非表示ルーム登録
   /schedule/{schedule_id}/time:
     patch:
@@ -1137,7 +1322,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: スケジュール時間変更リクエスト
         in: body
         name: request
@@ -1147,22 +1332,34 @@ paths:
       produces:
       - application/json
       responses:
-        "200":
-          description: OK
+        "204":
+          description: No Content
           schema:
             $ref: '#/definitions/presenter.ScheduleItemEditResponse'
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール時間変更
   /schedule/{schedule_id}/title:
     patch:
@@ -1171,7 +1368,7 @@ paths:
         in: path
         name: schedule_id
         required: true
-        type: string
+        type: integer
       - description: タイトル保存リクエスト
         in: body
         name: request
@@ -1188,15 +1385,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュールタイトル保存
   /schedule/create/{campus}:
     post:
@@ -1222,15 +1431,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュール作成
   /schedule/list/{campus}:
     get:
@@ -1250,15 +1471,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: スケジュールリスト取得
   /user:
     post:
@@ -1279,15 +1512,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "409":
           description: Conflict
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: ユーザー追加
     put:
       parameters:
@@ -1307,15 +1552,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: ユーザー更新
   /user/{userid}:
     delete:
@@ -1335,15 +1592,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: ユーザー削除
     get:
       parameters:
@@ -1362,15 +1631,27 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "404":
           description: Not Found
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: ユーザー取得
   /user/list:
     get:
@@ -1384,11 +1665,21 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: ユーザー一覧取得
   /user/login:
     post:
@@ -1409,11 +1700,15 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            $ref: '#/definitions/presenter.UserLoginResponse'
         "401":
           description: Unauthorized
           schema:
-            type: string
+            $ref: '#/definitions/presenter.UserLoginResponse'
+        "500":
+          description: Internal Server Error
+          schema:
+            $ref: '#/definitions/presenter.UserLoginResponse'
       summary: ユーザーログイン
   /user/logout:
     post:
@@ -1422,6 +1717,16 @@ paths:
       responses:
         "204":
           description: No Content
+          schema:
+            type: string
+        "401":
+          description: Unauthorized
+          schema:
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
           schema:
             type: string
       summary: ユーザーログアウト
@@ -1437,10 +1742,20 @@ paths:
         "400":
           description: Bad Request
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
         "401":
           description: Unauthorized
           schema:
-            type: string
+            additionalProperties:
+              type: string
+            type: object
+        "500":
+          description: Internal Server Error
+          schema:
+            additionalProperties:
+              type: string
+            type: object
       summary: ログインユーザー取得
 swagger: "2.0"
