@@ -117,6 +117,9 @@ API スキーマは `swagger.yaml` および `open-api.json` に保持され、
 
 ### セットアップ手順
 ```bash
+# 環境変数ファイルの作成
+cp .env.example .env
+
 # 依存関係のインストール
 npm install
 ```
@@ -130,6 +133,10 @@ npm run dev
 # 起動後のアクセス
 # ブラウザで以下のURLを開く
 http://localhost:3031
+
+# 初回ログイン情報
+ID: admin@admin.com
+Password: admin
 
 # ビルド
 npm run build

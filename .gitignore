@@ -38,3 +38,4 @@ jspm_packages
 lesson-link/.env.local
 lesson-link/.next/
 lesson-link/next-env.d.ts
+lesson-link/.env
